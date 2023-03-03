@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>signup</title>
+    <style>
+form
+{
+font-family:Tahoma;
+font-size:100%;
+border:1px solid white;
+padding:10px;
+margin-left: 400px;
+margin-right: 50px
+}
+body
+{
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 100% 100%;
+}
+</style>
+</head>
+<body style="background-image:url({% static 'images/17973908.jpg' %})">
+
+<h5 style="text-align:left;font-family:arial;font-size:200%;color:lightblue;background-color:white"> Sign up</h5>
+
+<form method="post" action="signup">
+    {% csrf_token %}
+ <fieldset>
+<legend><b>Personal information</b></legend>
+<label>Name</label>
+<input type="text" name ="name1" placeholder="First Name">  <input type="text" name ="name2" placeholder="Last Name"><br><br>
+<label>Email ID</label>
+<input type="email" name ="email" placeholder="example@example.com">
+ </fieldset>
+<br><br>
+ <fieldset>
+<legend><b>Log in information</b></legend>
+<label>Create User name for log in</label><br>
+<input type="text" name ="username" placeholder="Enter User name"> <br><br>
+<label>create password for log in</label><br>
+<input type="password" name ="pswsd" placeholder="Enter password"><br><br>
+     <input type="password" name ="cpswsd" placeholder="Confirm password"><br><br>
+
+ </fieldset>
+<br><br>
+
+ <fieldset>
+<legend><b>Terms and conditions</b></legend>
+<label>I have read and accept the Terms and Conditions. I understood and signed the document. I understand and sign the document. The location of the checkbox or action button can be a critical factor in proving that a user knew that the terms and conditions were displayed and agreed.</label><br><br>
+<input type="submit">
+     {% for msg in messages %}
+        <h style="color:red;">{{msg}}</h>
+     {% endfor %}
+
+</form>
+</body>
+</html>

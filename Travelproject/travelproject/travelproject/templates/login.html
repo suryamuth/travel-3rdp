@@ -1,0 +1,36 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<title>Login</title>
+
+<style>
+form
+{
+font-family:Tahoma;
+font-size:100%;
+border:1px solid white;
+padding:10px;
+margin-left:800px;
+margin-right:400px;
+}
+body
+ {
+  background-image: url({% static 'images/Untitled.png' %});
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+}
+</style>
+</head>
+<body ">
+<h5 style="text-align:left;font-family:arial;font-size:200%;color:lightblue;background-color:white"> Log In</h5>
+<form method="post"action="login">
+    {% csrf_token %}
+<input type="text" name ="username" placeholder="Enter User name"> <br><br>
+<input type="password" name ="pswsd" placeholder="Enter password"><br><br>
+<button type="submit">Log in</button> {% for msg in messages %}<h style="color:red;">{{msg}}</h>{% endfor %}
+
+</form>
+</body>
+</html>
